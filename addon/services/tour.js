@@ -226,8 +226,9 @@ export default Service.extend(Evented, {
 
     for (let i = 0; i < computedStyle.length; i++) {
       const propertyName = computedStyle[i];
-
-      clonedElement[0].style[propertyName] = computedStyle.getPropertyValue(propertyName);
+      if(propertyName !== 'transition') {
+        clonedElement[ 0 ].style[ propertyName ] = computedStyle.getPropertyValue(propertyName);
+      }
     }
   },
 
