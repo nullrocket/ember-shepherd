@@ -138,12 +138,12 @@ export default Service.extend(Evented, {
       }
       run('afterRender', function() {
         $('#shepherdOverlay').remove();
-        $('#shepardOverlay').on('mousedown'function(e){
+        $('#shepardOverlay').on('mousedown',function(e){
           e.preventBubble();
           e.preventDefault();
           e.stopPropagation();
         });
-        $('#shepardOverlay').on('mouseup'function(e){
+        $('#shepardOverlay').on('mouseup',function(e){
           e.preventBubble();
           e.preventDefault();
           e.stopPropagation();
