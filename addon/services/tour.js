@@ -138,6 +138,16 @@ export default Service.extend(Evented, {
       }
       run('afterRender', function() {
         $('#shepherdOverlay').remove();
+        $('#shepardOverlay').on('mousedown'function(e){
+          e.preventBubble();
+          e.preventDefault();
+          e.stopPropagation();
+        });
+        $('#shepardOverlay').on('mouseup'function(e){
+          e.preventBubble();
+          e.preventDefault();
+          e.stopPropagation();
+        });
         $('#highlightOverlay').remove();
         $('.shepherd-modal').removeClass('shepherd-modal');
       });
@@ -315,6 +325,7 @@ export default Service.extend(Evented, {
   makeButton({ type, classes, text, action }) {
     if (type === 'cancel') {
       action = run.bind(this, function() {
+
         this.cancel();
       });
     } else if (type === 'back') {
